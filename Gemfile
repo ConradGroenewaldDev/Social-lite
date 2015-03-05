@@ -23,6 +23,7 @@ gem 'simple_form'
 # devise
 gem 'devise'
 
+gem 'gravatarify', '~> 3.0.0'
 
 
 
