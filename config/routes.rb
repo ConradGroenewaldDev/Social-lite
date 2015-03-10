@@ -9,7 +9,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'pages#home'
+
   resources :users, only: [:show, :index]
+  resources :friendships, only: [:create, :destroy, :accept] do
+    member do
+      put :accept
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
