@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friendships, class_name: "Friendships", foreign_key: "friend_id", dependent: :destroy
 
   def request_friendship(user_2)
-  	self.friendship.create(friend: user_2)
+  	self.friendships.create(friend: user_2)
   end
 
   def pending_friend_requests_from
@@ -31,10 +31,10 @@ class User < ActiveRecord::Base
     unless friendship.any?
       return "not friends"
     else 
-        if friendship.first.state == "active"
+        if friendships.first.state == "active"
           return "friends"
       else
-        if friendship.first.user == self
+        if friendships.first.user == self
           return "pending"
       else
            return "requested"
@@ -44,6 +44,6 @@ class User < ActiveRecord::Base
 end
   
   def friendship_relative(user_2)
-    Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2]).first
+    Friendships.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2]).first
   end
 end

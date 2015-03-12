@@ -5,21 +5,21 @@ before_action :set_friendship, only: [:destroy, :accept]
 
 
 	def create
-		@friendship = current_user.request_friendship(@user)
+		@friendships = current_user.request_friendship(@user)
 		respond_to do |format|
 			format.html {redirect_to users_path, notice: "Friendship Created"}
 		end
 	end
 
 	def destroy
-		@friendship.destroy
+		@friendships.destroy
 		respond_to do |format|
 			format.html {redirect_to users_path, notice: "Friendship Deleted"}
 		end
 	end
 
 	def accept
-		@friendship.accept_friendship
+		@friendships.accept_friendship
 		respond_to do |format|
 			format.html {redirect_to users_path, notice: "Friendship Accepted"}
 		end
@@ -28,12 +28,12 @@ before_action :set_friendship, only: [:destroy, :accept]
 	private
 
 	def set_user
-		@user = User.find(params[:user_id])
+		@users = User.find(params[:user_id])
 
 	end
 
 	def set_friendship
-		@friendship = Friendship.find(params[:id])
+		@friendships = Friendship.find(params[:id])
 	end	
 
 end
