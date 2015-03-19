@@ -25,7 +25,8 @@ gem 'devise'
 
 gem 'gravatarify', '~> 3.0.0'
 
-
+#activity
+gem 'public_activity'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

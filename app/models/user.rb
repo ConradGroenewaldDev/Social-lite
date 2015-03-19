@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_many :friendships, dependent: :destroy
-  has_many :inverse_friendships, class_name: "Friendships", foreign_key: "friend_id", dependent: :destroy
+  has_many :inverse_friendships, class_name: "Friendship", foreign_key: "friend_id", dependent: :destroy
 
   def request_friendship(user_2)
   	self.friendships.create(friend: user_2)
@@ -27,14 +27,14 @@ class User < ActiveRecord::Base
   end
 
   def friendship_status(user_2)
-    friendship = Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2])
+    friendship = Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2.id])
     unless friendship.any?
       return "not friends"
     else 
-        if friendships.first.state == "active"
+        if friendship.first.state == "active"
           return "friends"
       else
-        if friendships.first.user == self
+        if friendship.first.user == self
           return "pending"
       else
            return "requested"
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     end
 end
   
-  def friendship_relative(user_2)
-    Friendships.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2]).first
+  def friendship_relation(user_2)
+    Friendship.where(user_id: [self.id,user_2.id], friend_id: [self.id,user_2.id]).first
   end
 end
