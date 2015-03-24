@@ -1,0 +1,50 @@
+<!-- index page for timeline will be seen -->
+
+<!-- Timeline Header -->
+<div class="jumbotron text-center">
+
+	<h1>Timeline</h1>
+
+	<div class="btn-group" role="group" aria-label="Default">
+
+		<%= link_to "Everything", activities_path, class: "btn btn-default #{'active' unless params[:content]}" %>
+		<%= link_to "Just Posts", activities_path(content: "posts"), class: "btn btn-default #{'active' if params[:content] == 'posts'}" %>
+	</div>
+</div>
+
+<!-- Timeline -->
+<div class="container">
+	<ul class="timeline">
+		<!-- render with a loop show each timeline in order by index -->
+		<% @activities.each_with_index do |activity| %>
+		<!-- show condition if owner still exists -->
+		<% if activity.trackable %>
+			<!-- if index is odd -->
+			<% if cycle('odd', "even") == 'odd' %>
+				<li class="timeline-inverted">
+
+			<% else %>
+			<li>
+			<% end %>
+			<!-- insert image of user -->
+			<div class="timeline-badge"><%= gravatar_tag activity.owner.email, size: 55 %></div>
+			<!-- timeline text panel -->
+			<div class="timeline-panel">
+				<div class="timeline-heading">
+					<h4 class="timeline-title"><%= link_to activity.owner.username, user_path(activity.owner.username) %></h4>
+					<p><small><%= time_ago_in_words(activity.created_at) %> ago</small></p>
+				</div>
+			<!-- posts and friendships go in the timeline body -->
+			<div class="timeline-body">
+				<% case activity.trackable_type when "Post" %>	
+				<!-- display the content -->
+				<%= raw(activity.trackable.content_html) %>
+				<% when "Friendship" %>
+					<%= link_to activity.owner.username, user_path(activity.owner.username) %> is now friends with <%= link_to activity.recipient.username, user_path(activity.recipient.username) %>
+				<% end %>
+				</div>
+			</div>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
