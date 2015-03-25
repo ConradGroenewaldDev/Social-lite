@@ -17,6 +17,9 @@
 	<ul class="timeline">
 		<!-- render with a loop show each timeline in order by index -->
 		<% @activities.each_with_index do |activity| %>
+
+		<!-- condition not to replicate posts if we own it don't show it -->
+		<% unless activity.trackable_type == "Friendship" && activity.owner == current_user %>
 		<!-- show condition if owner still exists -->
 		<% if activity.trackable %>
 			<!-- if index is odd -->
@@ -44,6 +47,7 @@
 				<% end %>
 				</div>
 			</div>
+			<% end %>
 			<% end %>
 		<% end %>
 	</ul>
