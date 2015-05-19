@@ -6,6 +6,8 @@
 		<% end %>   
 	</div>
 	<div class="panel-body">
-		<%= raw(post.content_html) %>
+	<%= raw(post.content_html) %>
+	<%= image_tag @post.image.url(:small) %>
+	
 	</div>
 </div>

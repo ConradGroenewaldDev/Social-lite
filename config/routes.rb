@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  resources :images
+
+  resources :comments
+
   devise_for :users, controllers: {registrations: 'registrations'}
   
 

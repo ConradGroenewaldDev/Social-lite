@@ -42,6 +42,7 @@
 				<% case activity.trackable_type when "Post" %>	
 				<!-- display the content -->
 				<%= raw(activity.trackable.content_html) %>
+				
 				<% when "Friendship" %>
 					<%= link_to activity.owner.username, user_path(activity.owner.username) %> is now friends with <%= link_to activity.recipient.username, user_path(activity.recipient.username) %>
 				<% end %>

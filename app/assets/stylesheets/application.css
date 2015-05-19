@@ -13,3 +13,47 @@
  *= require_tree .
  *= require_self
  */
+
+.cancel a:hover{
+	text-decoration: none;
+	background: transparent;
+	color: inherit;
+}
+
+ /*changed default header color*/
+.navbar-main{
+	background: #283593;
+}
+.navbar-main a{
+	color: #ececec;
+}
+.navbar-main a:hover{
+	background: transparent !important;
+	color: #F0DA00 !important;
+}
+
+.nav .open a, .nav .open a:hover, .nav .open a:focus{
+	background: inherit;
+}
+
+/*changed bootstrap button color*/
+.btn-primary{
+	background: #283593 !important;
+	color: #ececec !important;
+}
+
+.btn-primary:hover{
+	color: #F0DA00 !important;
+}
+
+.dropdown-menu{
+	background: #283593;
+
+}
+.dropdown-menu li a{
+	background: #283593;
+	color: #ececec !important;
+}
+
+
+

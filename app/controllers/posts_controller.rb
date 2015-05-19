@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :set_post, only: [:edit, :update, :destroy]
+	
 
 	def create
 		@post = current_user.posts.new(post_params)
@@ -43,7 +44,7 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:content)
+		params.require(:post).permit(:content, :image)
 	end
 
 end
