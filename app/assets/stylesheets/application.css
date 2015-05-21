@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  */
-.anchor:hover{
-	background: transparent;
-	color: #283593;
+.panel-heading a:hover{
+	background: #fff !important;
+	color: #283593 !important;
+	text-decoration: none !important;
 }
 
 .cancel a:hover{
