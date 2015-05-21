@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
- .panel-heading a:hover{
-	background: #fff !important;
+.anchor:hover{
+	background: transparent !important;
 	color: #283593 !important;
 	text-decoration: none !important;
 }
