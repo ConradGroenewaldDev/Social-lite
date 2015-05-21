@@ -15,5 +15,5 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-$(".alert").alert();
+$(".alert-message").alert();
 window.setTimeout(function() { $(".alert-message").alert('close'); }, 2000);
