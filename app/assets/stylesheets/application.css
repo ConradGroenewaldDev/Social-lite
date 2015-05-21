@@ -14,6 +14,12 @@
  *= require_self
  */
 
+ .panel a:hover{
+ 	background: transparent;
+ 	color: #283593;
+
+ }
+
 .cancel a:hover{
 	text-decoration: none;
 	background: transparent;
