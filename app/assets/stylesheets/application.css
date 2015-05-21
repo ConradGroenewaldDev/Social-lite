@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+ 	background: black;
+ }
 .anchor:hover{
 	background: transparent !important;
 	color: #283593 !important;
