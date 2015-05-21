@@ -8,6 +8,7 @@ belongs_to :user
  	:thumb => "64x64!" }
  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
  
+ 
 
 
 
