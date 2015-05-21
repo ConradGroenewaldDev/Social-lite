@@ -14,14 +14,7 @@
  *= require_self
  */
 
- body{
- 	background: black;
- }
-.anchor:hover{
-	background: transparent !important;
-	color: #283593 !important;
-	text-decoration: none !important;
-}
+ 
 
 .cancel a:hover{
 	text-decoration: none;
