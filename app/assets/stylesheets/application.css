@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.anchor{
+.anchor:hover{
 	background: transparent;
 	color: #283593;
 }
